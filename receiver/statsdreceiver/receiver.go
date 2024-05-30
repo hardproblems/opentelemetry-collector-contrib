@@ -56,8 +56,10 @@ func newReceiver(
 	}
 
 	obsrecv, err := receiverhelper.NewObsReport(receiverhelper.ObsReportSettings{
+		LongLivedCtx:           true,
 		ReceiverID:             set.ID,
 		ReceiverCreateSettings: set,
+		Transport:              metadata.Type.String(),
 	})
 	if err != nil {
 		return nil, err
